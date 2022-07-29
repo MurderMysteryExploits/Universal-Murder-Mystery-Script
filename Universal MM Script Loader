@@ -86,7 +86,7 @@ UpdateNotes.Parent = UpdateNotesScreenGui
 UpdateNotes.BackgroundColor3 = Color3.fromRGB(31, 31, 35)
 UpdateNotes.BorderSizePixel = 0
 UpdateNotes.Position = UDim2.new(0.367298573, 0, 0.190965086, 0)
-UpdateNotes.Size = UDim2.new(0, 335, 0, 300)
+UpdateNotes.Size = UDim2.new(0, 550, 0, 440)
 UpdateNotes.Visible = false
 
 UICornerForUpdateNotes.CornerRadius = UDim.new(0, 2)
@@ -95,7 +95,7 @@ UICornerForUpdateNotes.Parent = UpdateNotes
 UpdateNotesClose.Name = "close"
 UpdateNotesClose.Parent = UpdateNotes
 UpdateNotesClose.BackgroundTransparency = 1.000
-UpdateNotesClose.Position = UDim2.new(0.923880577, 0, 0, 0)
+UpdateNotesClose.Position = UDim2.new(0.954, 0, 0, 0)
 UpdateNotesClose.Size = UDim2.new(0, 25, 0, 25)
 UpdateNotesClose.ZIndex = 2
 UpdateNotesClose.Image = "rbxassetid://3926305904"
@@ -106,12 +106,12 @@ UpdateNotesTitle.Name = "Title"
 UpdateNotesTitle.Parent = UpdateNotes
 UpdateNotesTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 UpdateNotesTitle.BackgroundTransparency = 1.000
-UpdateNotesTitle.Position = UDim2.new(0.197014928, 0, 0, 0)
+UpdateNotesTitle.Position = UDim2.new(0.317, 0, 0, 0)
 UpdateNotesTitle.Size = UDim2.new(0, 203, 0, 25)
 UpdateNotesTitle.Font = Enum.Font.SourceSansBold
 UpdateNotesTitle.Text = "Version 1.0.0 release notes"
 UpdateNotesTitle.TextColor3 = Color3.fromRGB(255, 255, 255)
-UpdateNotesTitle.TextSize = 15.000
+UpdateNotesTitle.TextSize = 16.000
 UpdateNotesTitle.TextWrapped = true
 
 ReleaseNotesMessage.Name = "ReleaseNotesMessage"
@@ -119,7 +119,7 @@ ReleaseNotesMessage.Parent = UpdateNotes
 ReleaseNotesMessage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ReleaseNotesMessage.BackgroundTransparency = 1.000
 ReleaseNotesMessage.Position = UDim2.new(0.0119402986, 0, 0.129999995, 0)
-ReleaseNotesMessage.Size = UDim2.new(0, 326, 0, 261)
+ReleaseNotesMessage.Size = UDim2.new(0, 547, 0, 390)
 ReleaseNotesMessage.Font = Enum.Font.SourceSansBold
 ReleaseNotesMessage.Text = "This current version, 1.0.0, has not received any updates yet. Please use my Youtube/Discord/V3rmillion account if you need help with the script!"
 ReleaseNotesMessage.TextColor3 = Color3.fromRGB(255, 255, 255)
@@ -560,22 +560,19 @@ end)
 								updateChams(player,"Gun")
 							end
 						end)
-					player.Backpack.ChildAdded:Connect(function(child)
+					local bconnection = player.Backpack.ChildAdded:Connect(function(child)
 							if child.Name == "Knife" then
 								updateChams(player,"Knife")
 							elseif child.Name == "Gun" or child.Name == "Revolver" then
 								updateChams(player,"Gun")
 							end
 						end)
-						char:WaitForChild("Humanoid").Died:Connect(function()
+					local charconnection = char:WaitForChild("Humanoid").Died:Connect(function()
 						for i,v in pairs(char:GetChildren()) do
 							if v:FindFirstChild("ChamsESP") then
 							v.ChamsESP:Destroy()
 							end
 						end
-						player.CharacterAdded:Connect(function ()
-							create_chams(player)
-						end)
 						end)
 					end
 					end					
@@ -591,7 +588,7 @@ end)
 							repeat wait() until char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")
 						for i,index in pairs(char:GetChildren()) do
 							if index:FindFirstChild("ChamsESP") then
-								index.ChamsESP.Transparency = getgenv().ChamsTransparency
+								index.ChamsESP.Transparency = getgenv().ChamsTransparency or 0.5
 							index.ChamsESP.Visible = getgenv().Chams
 							end
 						end
@@ -611,7 +608,7 @@ end)
 						repeat wait() until char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")
 						for i,index in pairs(char:GetChildren()) do
 							if index:FindFirstChild("ChamsESP") then
-							index.ChamsESP.Transparency = getgenv().ChamsTransparency
+							index.ChamsESP.Transparency = getgenv().ChamsTransparency or 0.5
 							index.ChamsESP.Visible = getgenv().Chams
 							end
 						end
@@ -642,20 +639,20 @@ end)
 				if game.ReplicatedStorage:FindFirstChild("Remotes") and game.ReplicatedStorage.Remotes:FindFirstChild("Shop") and game.ReplicatedStorage.Remotes.Shop:FindFirstChild('OpenCrate') then			
 					local function insidefunction()
 						repeat task.wait() until getgenv().Autounbox and getgenv().AutounboxRemote
-						game.ReplicatedStorage.Remotes.Shop.OpenCrate:InvokeServer(getgenv().AutounboxRemote)
+						game.ReplicatedStorage.Remotes.Shop.OpenCrate:InvokeServer(getgenv().AutounboxRemote)	
 						insidefunction()
 					end
 					insidefunction()
 				elseif game.ReplicatedStorage:FindFirstChild('ShopEntries') and game.ReplicatedStorage.ShopEntries:FindFirstChild("WeaponSkins") and game.ReplicatedStorage.Interactions.Server:FindFirstChild("BuyShopItem") then
 					local function insidefunction()
-						repeat task.wait() until getgenv().Autounbox and getgenv().AutounboxRemote
+						repeat task.wait(0.01) until getgenv().Autounbox and getgenv().AutounboxRemote
 						game:GetService("ReplicatedStorage").Interactions.Server.BuyShopItem:InvokeServer(game:GetService("ReplicatedStorage").ShopEntries.WeaponSkins[getgenv().AutounboxRemote])
 						insidefunction()
 					end
 					insidefunction()
 				elseif game.ReplicatedStorage:FindFirstChild('ShopEntries') and game.ReplicatedStorage.ShopEntries:FindFirstChild("KnifeSkins") and game.ReplicatedStorage.Interactions.Server:FindFirstChild("BuyShopItem") then
 					local function insidefunction()
-						repeat task.wait() until getgenv().Autounbox and getgenv().AutounboxRemote
+						repeat task.wait(0.01) until getgenv().Autounbox and getgenv().AutounboxRemote
 						game:GetService("ReplicatedStorage").Interactions.Server.BuyShopItem:InvokeServer(getgenv().AutounboxRemote)
 						insidefunction()
 					end
