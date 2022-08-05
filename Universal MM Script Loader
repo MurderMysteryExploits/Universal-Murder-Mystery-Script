@@ -1,5 +1,5 @@
 local s,e = pcall(function()
-	loadstring(game:HttpGet("https://pastebin.com/raw/nm0e56Ce"))()
+	loadstring(game:HttpGet("https://pastebin.com/raw/t2eBeVPb"))()
 end)
 if s then				
 if game.CoreGui:FindFirstChild("Universal Murder Mystery v("..getgenv().Script_Version..")") then
@@ -69,33 +69,33 @@ LoaderDisplay.TextColor3 = Color3.fromRGB(255, 255, 255)
 LoaderDisplay.TextSize = 15.000
 LoaderDisplay.TextStrokeTransparency = 0.830
 LoaderDisplay.TextWrapped = true
-
 local UpdateNotesScreenGui = Instance.new("ScreenGui")
-local UpdateNotes = Instance.new("Frame")
-local UICornerForUpdateNotes = Instance.new("UICorner")
+local UpdateNotesGUI = Instance.new("Frame")
+local UpdateNotesUICorner = Instance.new("UICorner")
 local UpdateNotesClose = Instance.new("ImageButton")
 local UpdateNotesTitle = Instance.new("TextLabel")
 local ReleaseNotesMessage = Instance.new("TextLabel")
 
+UpdateNotesScreenGui.Name = "UpdateNotes"
 UpdateNotesScreenGui.Parent = game.CoreGui
 UpdateNotesScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
-UpdateNotesScreenGui.Name = "UpdateNotes"
 
-UpdateNotes.Name = "UpdateNotesGUI"
-UpdateNotes.Parent = UpdateNotesScreenGui
-UpdateNotes.BackgroundColor3 = Color3.fromRGB(31, 31, 35)
-UpdateNotes.BorderSizePixel = 0
-UpdateNotes.Position = UDim2.new(0.367298573, 0, 0.190965086, 0)
-UpdateNotes.Size = UDim2.new(0, 550, 0, 440)
-UpdateNotes.Visible = false
+UpdateNotesGUI.Name = "UpdateNotesGUI"
+UpdateNotesGUI.Parent = UpdateNotesScreenGui
+UpdateNotesGUI.AnchorPoint = Vector2.new(0.5, 0.5)
+UpdateNotesGUI.BackgroundColor3 = Color3.fromRGB(31, 31, 35)
+UpdateNotesGUI.BorderSizePixel = 0
+UpdateNotesGUI.Position = UDim2.new(0.49960506, 0, 0.499743313, 0)
+UpdateNotesGUI.Size = UDim2.new(0, 773, 0, 486)
+UpdateNotesGUI.Visible = false
 
-UICornerForUpdateNotes.CornerRadius = UDim.new(0, 2)
-UICornerForUpdateNotes.Parent = UpdateNotes
+UICorner.CornerRadius = UDim.new(0, 2)
+UICorner.Parent = UpdateNotesGUI
 
 UpdateNotesClose.Name = "close"
-UpdateNotesClose.Parent = UpdateNotes
+UpdateNotesClose.Parent = UpdateNotesGUI
 UpdateNotesClose.BackgroundTransparency = 1.000
-UpdateNotesClose.Position = UDim2.new(0.954, 0, 0, 0)
+UpdateNotesClose.Position = UDim2.new(0.966936588, 0, -0.00205761311, 0)
 UpdateNotesClose.Size = UDim2.new(0, 25, 0, 25)
 UpdateNotesClose.ZIndex = 2
 UpdateNotesClose.Image = "rbxassetid://3926305904"
@@ -103,10 +103,11 @@ UpdateNotesClose.ImageRectOffset = Vector2.new(284, 4)
 UpdateNotesClose.ImageRectSize = Vector2.new(24, 24)
 
 UpdateNotesTitle.Name = "Title"
-UpdateNotesTitle.Parent = UpdateNotes
+UpdateNotesTitle.Parent = UpdateNotesGUI
+UpdateNotesTitle.AnchorPoint = Vector2.new(0.5, 0)
 UpdateNotesTitle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 UpdateNotesTitle.BackgroundTransparency = 1.000
-UpdateNotesTitle.Position = UDim2.new(0.317, 0, 0, 0)
+UpdateNotesTitle.Position = UDim2.new(0.5, 0, 0, 0)
 UpdateNotesTitle.Size = UDim2.new(0, 203, 0, 25)
 UpdateNotesTitle.Font = Enum.Font.SourceSansBold
 UpdateNotesTitle.Text = "Version 1.0.0 release notes"
@@ -115,15 +116,16 @@ UpdateNotesTitle.TextSize = 16.000
 UpdateNotesTitle.TextWrapped = true
 
 ReleaseNotesMessage.Name = "ReleaseNotesMessage"
-ReleaseNotesMessage.Parent = UpdateNotes
+ReleaseNotesMessage.Parent = UpdateNotesGUI
+ReleaseNotesMessage.AnchorPoint = Vector2.new(0.5, 0)
 ReleaseNotesMessage.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 ReleaseNotesMessage.BackgroundTransparency = 1.000
-ReleaseNotesMessage.Position = UDim2.new(0.0119402986, 0, 0.129999995, 0)
-ReleaseNotesMessage.Size = UDim2.new(0, 547, 0, 390)
+ReleaseNotesMessage.Position = UDim2.new(0.499639064, 0, 0.0497530699, 0)
+ReleaseNotesMessage.Size = UDim2.new(0, 762, 0, 461)
 ReleaseNotesMessage.Font = Enum.Font.SourceSansBold
-ReleaseNotesMessage.Text = "This current version, 1.0.0, has not received any updates yet. Please use my Youtube/Discord/V3rmillion account if you need help with the script!"
+ReleaseNotesMessage.Text = ""
 ReleaseNotesMessage.TextColor3 = Color3.fromRGB(255, 255, 255)
-ReleaseNotesMessage.TextSize = 17
+ReleaseNotesMessage.TextSize = 17.000
 ReleaseNotesMessage.TextStrokeTransparency = 0.520
 ReleaseNotesMessage.TextWrapped = true
 ReleaseNotesMessage.TextXAlignment = Enum.TextXAlignment.Left
@@ -169,13 +171,14 @@ local function VMQU_fake_script()
 		Init_Function = function()
 			if game:GetService("RunService"):IsStudio() then return {true,"Version Operational"} else 
 				local s,e = pcall(function()
-				loadstring(game:HttpGet("https://pastebin.com/raw/nm0e56Ce"))()
+				loadstring(game:HttpGet("https://pastebin.com/raw/t2eBeVPb"))()
 				end)
 				if s then
 				UpdateNotesTitle.Text = "Version "..getgenv().Script_Version.." Release Notes"
 				ReleaseNotesMessage.Text = getgenv().Version_Update_Message
 				UpdateNotesClose.MouseButton1Click:Connect(function ()
 				UpdateNotesScreenGui:Destroy()
+				venyx:toggle()
 				end)
 				return {true,"Version Operational"}
 				else
@@ -256,6 +259,7 @@ local function VMQU_fake_script()
 				Xray = PlayerVisualsSection:addToggle("Xray",false,function(value)
 					getgenv().Xray = value		
 				end)
+				getgenv().ChamsTransparency = 0.5
 				ChamsEspTransparency = VisualsSettingsSection:addSlider("Chams Transparency",50,0,100, function(value)
 					getgenv().ChamsTransparency = value/100
 				end)
@@ -302,7 +306,7 @@ local function VMQU_fake_script()
 				Map = GameTeleports:addButton("Teleport to Current Map",function()
 					local function check1()
 						for i,v in pairs(workspace:GetDescendants()) do
-							if v.Name == "Spawns" and not v:FindFirstAncestor("Lobby") then
+							if v.Name == "Spawns" and not v:FindFirstAncestor("Lobby") and not v:FindFirstAncestor("Summer Lobby") then
 								return true
 							end
 						end
@@ -315,7 +319,7 @@ local function VMQU_fake_script()
 						end
 					elseif check1() then
 						for i,v in pairs(workspace:GetDescendants()) do
-							if v.Name == "Spawns" and not v:FindFirstAncestor("Lobby") then
+							if v.Name == "Spawns" and not v:FindFirstAncestor("Lobby") and not v:FindFirstAncestor("Summer Lobby") then
 								game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v:GetChildren()[1].CFrame
 							end
 						end
@@ -323,22 +327,49 @@ local function VMQU_fake_script()
 					end
 				end)
 				Lobby = GameTeleports:addButton("Teleport to Lobby",function()
+				local function checkforlobbyspawns()
+				if workspace:FindFirstChild("Lobby") then
+				for i,v in pairs(workspace.Lobby:GetDescendants()) do
+					if v.Name == "Spawn" or v.Name == "SpawnLocation" then
+					return {true,v}
+					end
+				end
+				return {false,nil}
+				end
+				end
 					if workspace:FindFirstChild("Lobby") and workspace.Lobby:FindFirstChild("Spawns") and workspace.Lobby.Spawns:FindFirstChild("Model") then
 						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = workspace.Lobby.Spawns.Model:GetChildren()[1].CFrame
 					elseif workspace:FindFirstChild("Lobby") and workspace.Lobby:FindFirstChild('Spawns') then
 						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace").Lobby.Spawns:GetChildren()[1].CFrame
-					elseif workspace:FindFirstChild("Lobby") then
-						for i,v in pairs(workspace:GetChildren()) do
-							if v.Name == "Lobby" then
-								for x,d in pairs(v:GetDescendants()) do
-									if d.Name == "SpawnLocation" or d.Name == "Spawn" then
-										game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = d.CFrame
-									end
-								end
-							end
-						end
-					elseif game:GetService("Workspace")["MM2 Christmas Lobby"] then
+					elseif workspace:FindFirstChild("Lobby") and checkforlobbyspawns()[1] == true then
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = checkforlobbyspawns()[2].CFrame
+					elseif game:GetService("Workspace"):FindFirstChild("MM2 Christmas Lobby") then
 						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace")["MM2 Christmas Lobby"].Spawns:GetChildren()[1].CFrame
+					elseif workspace:FindFirstChild("Summer Lobby") then
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = game:GetService("Workspace")["Summer Lobby"].Spawns:GetChildren()[1].CFrame
+					end
+				end)
+				Murderer = GameTeleports:addButton("Teleport To Murderer", function ()
+					for i,v in pairs(game.Players:GetPlayers()) do
+						task.spawn(function()
+						if v ~= game.Players.LocalPlayer and v.Character and v.Backpack:FindFirstChild("Knife") or v.Character:FindFirstChild("Knife") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.Character.HumanoidRootPart.CFrame
+						end
+					end)
+					end
+				end)
+				Sheriff = GameTeleports:addButton("Teleport To Sheriff", function ()
+					for i,v in pairs(game.Players:GetPlayers()) do
+						task.spawn(function()
+						if v ~= game.Players.LocalPlayer and v.Backpack:FindFirstChild("Gun") or v.Character:FindFirstChild("Gun") or v.Backpack:FindFirstChild("Revovler") or v.Character:FindFirstChild("Revolver") and v.Character:FindFirstChild("HumanoidRootPart") and v.Character:FindFirstChild("Humanoid") and v.Character.Humanoid.Health > 0 then
+						game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = v.Character.HumanoidRootPart.CFrame
+						end
+					end)
+					end
+				end)
+				GunDrop = GameTeleports:addButton("Teleport to Gun Drop",function ()
+					if workspace:FindFirstChild("GunDrop") then
+					game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = workspace.GunDrop.CFrame
 					end
 				end)
 				return {true,"Successfully Created Teleports"}
@@ -400,10 +431,20 @@ local function VMQU_fake_script()
 				AutoUnboxToggle = AutoShop:addToggle("Crate Autofarm: Off", false, function(value)
 					getgenv().Autounbox = value
 					if value then
-						AutoShop:updateButton(AutoUnboxToggle,"Crate Autofarm: On",true)
+						AutoShop:updateToggle(AutoUnboxToggle,"Crate Autofarm: On",true)
 					else
-						AutoShop:updateButton(AutoUnboxToggle,"Crate Autofarm: Off",false)
+						AutoShop:updateToggle(AutoUnboxToggle,"Crate Autofarm: Off",false)
 					end
+				end)
+				AutoEveryUnboxToggle = AutoShop:addToggle("Autounbox all Crates: Off", false, function(value)
+				getgenv().AutounboxAllCratesToggle = value
+				if value then
+				getgenv().Autounbox = false
+				AutoShop:updateToggle(AutoEveryUnboxToggle,"Autounbox all Crates: On", true)
+				AutoShop:updateToggle(AutoUnboxToggle, "Crate Autofarm: Off", false)
+				else
+					AutoShop:updateToggle(AutoEveryUnboxToggle,"Autounbox all Crates: Off", false)
+				end
 				end)
 				if game.ReplicatedStorage:FindFirstChild("GetSyncData") then
 					local CrateTableNames = {}
@@ -420,25 +461,38 @@ local function VMQU_fake_script()
 					end)
 				elseif game.ReplicatedStorage:FindFirstChild('ShopEntries') and game.ReplicatedStorage.ShopEntries:FindFirstChild("WeaponSkins") and game.ReplicatedStorage:FindFirstChild("Interactions") and game.ReplicatedStorage.Interactions.Server:FindFirstChild("BuyShopItem") then
 					local CrateNamesTable = {}
+					local combinedtable = {}
 					for i,v in pairs(game:GetService("ReplicatedStorage").ShopEntries.WeaponSkins:GetChildren()) do
+						if not v:FindFirstChild("ProductId") then
 						CrateNamesTable[#CrateNamesTable+1] = v.Name
+						combinedtable[#combinedtable+1] = game:GetService("ReplicatedStorage").ShopEntries.WeaponSkins[v.Name]
+						end
 					end
-					local AutoUnboxCrates = AutoShop:addDropdown("Auto Unbox Crate None",CrateNamesTable,function(SelectedCrate)
+					getgenv().MMXCombinedCrateTable = combinedtable
+					local AutoUnboxCrates = AutoShop:addDropdown("Auto Unbox None",CrateNamesTable,function(SelectedCrate)
 						getgenv().AutounboxRemote = SelectedCrate
 					end)
 				elseif game.ReplicatedStorage:FindFirstChild('ShopEntries') and game.ReplicatedStorage.ShopEntries:FindFirstChild("KnifeSkins") and game.ReplicatedStorage.ShopEntries:FindFirstChild("RevolverSkins") and game.ReplicatedStorage:FindFirstChild("Interactions") and game.ReplicatedStorage.Interactions.Server:FindFirstChild("BuyShopItem") then
 					local CrateNamesRevTable = {}
 					local CrateNamesKnifeTable = {}
+					local combinedtable = {}
 					for i,v in pairs(game:GetService("ReplicatedStorage").ShopEntries.KnifeSkins:GetChildren()) do
+						if not v:FindFirstChild("ProductId") then
 						CrateNamesKnifeTable[#CrateNamesKnifeTable+1] = v.Name
+						combinedtable[#combinedtable+1] = game.ReplicatedStorage.ShopEntries.KnifeSkins[v.Name]
+						end			
 					end
 					for i,v in pairs(game:GetService("ReplicatedStorage").ShopEntries.RevolverSkins:GetChildren()) do
+						if not v:FindFirstChild("ProductId") then
 						CrateNamesRevTable[#CrateNamesRevTable+1] = v.Name
+						combinedtable[#combinedtable+1] = game.ReplicatedStorage.ShopEntries.RevolverSkins[v.Name]
+						end
 					end
-					local AutoUnboxCratesKnife = AutoShop:addDropdown("Auto Unbox Crate None",CrateNamesKnifeTable,function(SelectedCrate)
+					getgenv().MMXCombinedCrateTable = combinedtable
+					local AutoUnboxCratesKnife = AutoShop:addDropdown("Auto Unbox Knife None",CrateNamesKnifeTable,function(SelectedCrate)
 						getgenv().AutounboxRemote = game.ReplicatedStorage.ShopEntries.KnifeSkins[SelectedCrate]
 					end)
-					local AutoUnboxCratesRev = AutoShop:addDropdown("Auto Unbox Crate None",CrateNamesRevTable,function(SelectedCrate)
+					local AutoUnboxCratesRev = AutoShop:addDropdown("Auto Unbox Gun None",CrateNamesRevTable,function(SelectedCrate)
 						getgenv().AutounboxRemote = game.ReplicatedStorage.ShopEntries.RevolverSkins[SelectedCrate]
 					end)
 					local removeUnboxUiButton = AutoShop:addButton("Remove Case Open UI (better performance)",function()
@@ -452,9 +506,9 @@ local function VMQU_fake_script()
 							game:GetService("Players").LocalPlayer.PlayerGui.MainGui.CaseOpen.Visible = false
 						end	
 						end)
-					game.Lighting.DescendantAdded:Connect(function (child)
+					game.Lighting.DescendantAdded:Connect(function(child)
 					task.wait()
-					if child.Name == "CaseBlurEffect" then
+					if child:IsA("BlurEffect") then
 						child.Size = 0
 						child:Destroy()
 					end
@@ -471,7 +525,41 @@ end)
 		Init_Function = function()
 			if game:GetService("RunService"):IsStudio() then return {true,"Successfully Created Combat"} else 
 				CombatPage = venyx:addPage("Combat")			
-
+				MiscCombat = CombatPage:addSection("Misc Combat")
+				killAll = MiscCombat:addButton("Kill All (Murderer)", function ()
+					if game.Players.LocalPlayer.Character:FindFirstChild("Knife") then
+						for i,v in pairs(game.Players:GetPlayers()) do
+							spawn(function()
+							if v ~= game.Players.LocalPlayer and v.Character:FindFirstChild("HumanoidRootPart") then
+								v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.Knife.Handle.CFrame
+							end
+						end)
+						end
+						spawn(function()
+						if v.Character.Knife.KnifeServer:FindFirstChild("SlashStart") then
+							game.Players.LocalPlayer.Character.Knife.KnifeServer.SlashStart:FireServer(1)
+							else
+				game.Players.LocalPlayer.Character.Knife.Stab:FireServer("Slash")
+						end
+			end)
+					elseif game.Players.LocalPlayer.Backpack:FindFirstChild("Knife") then
+						game.Players.LocalPlayer.Character.Humanoid:EquipTool(game.Players.LocalPlayer.Backpack:FindFirstChild("Knife"))
+						for i,v in pairs(game.Players:GetPlayers()) do
+							spawn(function()
+						if v ~= game.Players.LocalPlayer and v.Character and v.Character:FindFirstChild("HumanoidRootPart") then
+							v.Character.HumanoidRootPart.CFrame = game.Players.LocalPlayer.Character.Knife.Handle.CFrame
+							end
+						end)
+						end
+					spawn(function()
+						if v.Character.Knife.KnifeServer:FindFirstChild("SlashStart") then
+							game.Players.LocalPlayer.Character.Knife.KnifeServer.SlashStart:FireServer(1)
+							else
+				game.Players.LocalPlayer.Character.Knife.Stab:FireServer("Slash")
+						end
+			end)
+					end
+				end)
 				return {true,"Successfully Created Combat"}
 			end
 		end;
@@ -499,6 +587,15 @@ end)
 				MiscSettings:addButton("Unlock FPS Cap",function()
 				setfpscap(360)
 				end)
+				local CopyDiscordBtn = MiscSettings:addButton("Copy Discord",function()
+				setclipboard("MM Exploits#9242")
+				end)
+				local CopyV3rmBtn = MiscSettings:addButton("Copy V3rmillion Profile Link",function()
+				setclipboard("https://v3rmillion.net/member.php?action=profile&uid=2777281")
+				end)
+				local CopyYoutubeBtn = MiscSettings:addButton("Copy Youtube Channel Link",function()
+				setclipboard("https://www.youtube.com/channel/UCE9ws9NFE7Jlgo-xx1NIfMw")
+				end)
 				return {true,"Successfully Created Settings"}
 			end
 		end;
@@ -518,104 +615,79 @@ end)
 	LOADER_TABLE['95'] = {Text="Finishing Up";
 		Init_Function = function()
 		local function InitChams()
-			local function create_chams(player)
-						local char = player.Character
-						if game.Players:FindFirstChild(player.Name) and player ~= game.Players.LocalPlayer and char then
-						repeat wait() until char:FindFirstChild("HumanoidRootPart") and char:FindFirstChild("Humanoid") and char.Humanoid.Health > 0
-						for i,v in pairs(char:GetChildren()) do
-							if v:IsA("Part") or v:IsA("MeshPart") and not v:FindFirstChild("ChamsESP") then
-							local adorn_chams = Instance.new("BoxHandleAdornment")
-							adorn_chams.Parent = v
-							adorn_chams.AlwaysOnTop = true
-							adorn_chams.Adornee = v
-							adorn_chams.Name = "ChamsESP"
-							adorn_chams.Size = v.Size
-							adorn_chams.Transparency = getgenv().ChamsTransparency or 0.5
-							adorn_chams.Visible = getgenv().Chams or false
-							adorn_chams.ZIndex = 1
-							if char:FindFirstChild('Knife') or player.Backpack:FindFirstChild('Knife') then
-									adorn_chams.Color3 = Color3.new(1, 0, 0)
-								elseif char:FindFirstChild('Gun') or char:FindFirstChild('Revolver') or player.Backpack:FindFirstChild('Gun') or player.Backpack:FindFirstChild('Revolver') then
-									adorn_chams.Color3 = Color3.new(0, 0, 1)
-								else
-									adorn_chams.Color3 = Color3.new(0, 1, 0)
-								end	
-							end
-						end
-					local function updateChams(PLAYER,role)
-						for i,v in pairs(PLAYER.Character:GetChildren()) do
-							if v:FindFirstChild("ChamsESP") then
-							if role == "Knife" then
-							v.ChamsESP.Color3 = Color3.new(1, 0, 0)
-							elseif role == "Gun" then
-							v.ChamsESP.Color3 = Color3.new(0, 0, 1)
-							end
-							end
-						end
-						end
-					local charchildaddedconnect = char.ChildAdded:Connect(function(child)
-							if child.Name == "Knife" then
-								updateChams(player,"Knife")
-							elseif child.Name == "Gun" or child.Name == "Revolver" then
-								updateChams(player,"Gun")
-							end
-						end)
-					local bconnection = player.Backpack.ChildAdded:Connect(function(child)
-							if child.Name == "Knife" then
-								updateChams(player,"Knife")
-							elseif child.Name == "Gun" or child.Name == "Revolver" then
-								updateChams(player,"Gun")
-							end
-						end)
-					local charconnection = char:WaitForChild("Humanoid").Died:Connect(function()
-						for i,v in pairs(char:GetChildren()) do
-							if v:FindFirstChild("ChamsESP") then
-							v.ChamsESP:Destroy()
-							end
-						end
-						end)
+			local function CreateChams(player)
+	local plrChar = player.Character or player.CharacterAdded:Wait()
+	if not plrChar:FindFirstChild("ChamsESP_V2") then
+	CreatedChamsHighlight = Instance.new("Highlight",plrChar)
+	CreatedChamsHighlight.Adornee = plrChar
+	CreatedChamsHighlight.OutlineTransparency = 0.7
+	CreatedChamsHighlight.FillTransparency = getgenv().ChamsTransparency or 0.5
+	CreatedChamsHighlight.Name = "ChamsESP_V2"
+	CreatedChamsHighlight.Enabled = getgenv().Chams or false
+	if plrChar:FindFirstChild("Gun") or plrChar:FindFirstChild("Revolver") or player.Backpack:FindFirstChild("Gun") or player.Backpack:FindFirstChild("Revolver") then
+	CreatedChamsHighlight.FillColor = Color3.new(0,0,1)
+	elseif player.Backpack:FindFirstChild("Knife") or plrChar:FindFirstChild("Knife") then
+	CreatedChamsHighlight.FillColor = Color3.new(1,0,0)
+	else
+	CreatedChamsHighlight.FillColor = Color3.new(0,1,0)
+	end
+	local function updateChams(role)
+				local highlight = plrChar:WaitForChild("ChamsESP_V2")
+					if role == "Knife" then
+					highlight.FillColor = Color3.new(1, 0, 0)
+					elseif role == "Gun" then
+					highlight.FillColor = Color3.new(0, 0, 1)
 					end
-					end					
-					for i,v in pairs(game.Players:GetPlayers()) do
-							create_chams(v)
-							v.CharacterAdded:Connect(function ()
-							create_chams(v)
-						end)
-							task.spawn(function()
-						while wait(1) do
-						if getgenv().Chams ~= nil then
-							local char = v.Character or v.CharacterAdded:Wait()
-							repeat wait() until char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")
-						for i,index in pairs(char:GetChildren()) do
-							if index:FindFirstChild("ChamsESP") then
-								index.ChamsESP.Transparency = getgenv().ChamsTransparency or 0.5
-							index.ChamsESP.Visible = getgenv().Chams
-							end
-						end
-						end
-						end 
-						end)
+				end
+		plrChar.ChildAdded:Connect(function(child)
+				if child.Name == "Knife" then
+					updateChams("Knife")
+				elseif child.Name == "Gun" or child.Name == "Revolver" then
+						updateChams("Gun")
 					end
-					game.Players.PlayerAdded:Connect(function(plr)
-					create_chams(plr)
-					plr.CharacterAdded:Connect(function ()
-							create_chams(plr)
-						end)
-					task.spawn(function()
-						while wait(1) do
-						if getgenv().Chams ~= nil then
-						local char = plr.Character or plr.CharacterAdded:Wait()
-						repeat wait() until char:FindFirstChild("Humanoid") and char:FindFirstChild("HumanoidRootPart")
-						for i,index in pairs(char:GetChildren()) do
-							if index:FindFirstChild("ChamsESP") then
-							index.ChamsESP.Transparency = getgenv().ChamsTransparency or 0.5
-							index.ChamsESP.Visible = getgenv().Chams
+				end)
+					player.Backpack.ChildAdded:Connect(function(child)
+							if child.Name == "Knife" then
+								updateChams("Knife")
+							elseif child.Name == "Gun" or child.Name == "Revolver" then
+								updateChams("Gun")
 							end
-						end
-						end
-						end 
 						end)
-					end)
+	end
+end 
+for i,v in pairs(game.Players:GetPlayers()) do
+	if v ~= game.Players.LocalPlayer then
+	task.spawn(CreateChams,v)
+	v.CharacterAdded:Connect(function ()
+	task.spawn(CreateChams,v)
+	end)
+	end
+end
+game.Players.PlayerAdded:Connect(function(plr)
+	task.spawn(CreateChams,plr)
+	plr.CharacterAdded:Connect(function()
+	task.spawn(CreateChams,plr)
+	end)
+end)
+task.spawn(function()
+while wait(0.5) do
+	if getgenv().Chams ~= nil then
+	for i,v in pairs(game.Players:GetPlayers()) do
+	task.spawn(function()
+	if v ~= game.Players.LocalPlayer then
+	local char = v.Character or v.CharacterAdded:Wait()
+	if char:FindFirstChild("ChamsESP_V2") then
+	char.ChamsESP_V2.Enabled = getgenv().Chams
+	char.ChamsESP_V2.FillTransparency = getgenv().ChamsTransparency
+	else
+		task.spawn(CreateChams,v)
+	end
+	end
+	end)
+	end	
+	end
+end
+end)
 					end
 			local function xrayInit()
 				local function insidefunction()
@@ -659,9 +731,35 @@ end)
 					insidefunction()
 				end
 			end
+			local function AutounboxAll()
+				if game.ReplicatedStorage:FindFirstChild("Remotes") and game.ReplicatedStorage.Remotes:FindFirstChild("Shop") and game.ReplicatedStorage.Remotes.Shop:FindFirstChild('OpenCrate') then			
+					local remotestable = {}
+					for i,v in pairs(game.ReplicatedStorage.GetSyncData:InvokeServer("MysteryBox")) do
+							remotestable[#remotestable+1] = i
+						end
+					local function insidefunction()
+						repeat task.wait() until getgenv().AutounboxAllCratesToggle and not getgenv().Autounbox
+						for i,v in pairs(remotestable) do
+							game.ReplicatedStorage.Remotes.Shop.OpenCrate:InvokeServer(v)
+						end	
+						insidefunction()
+					end
+					insidefunction()
+				elseif game.ReplicatedStorage:FindFirstChild('ShopEntries') and game.ReplicatedStorage.Interactions.Server:FindFirstChild("BuyShopItem") then
+					local function insidefunction()
+						repeat task.wait() until getgenv().AutounboxAllCratesToggle and getgenv().MMXCombinedCrateTable and not getgenv().Autounbox
+						for i,v in pairs(getgenv().MMXCombinedCrateTable) do
+							game:GetService("ReplicatedStorage").Interactions.Server.BuyShopItem:InvokeServer(v)
+						end
+						insidefunction()
+					end
+					insidefunction()
+				end
+			end
 			task.spawn(xrayInit)
 			task.spawn(InitChams)
 			task.spawn(Autounbox)
+			task.spawn(AutounboxAll)
 			return {true,"Finished"}
 		end;
 	}
@@ -675,7 +773,7 @@ end)
 		while wait() do
 			for i = 1,360 do
 				wait()
-				script.Parent.BorderColor3 = Color3.fromHSV(i/360,1,1)
+				LoaderFrame.BorderColor3 = Color3.fromHSV(i/360,1,1)
 			end
 		end
 	end
@@ -698,9 +796,14 @@ end)
 		end
 	end
 	wait(1)
+	venyx:toggle()
 	venyx:Notify("Script Loaded","Script successfully loaded. Enjoy the script, toggle key 'Q'. Would you like to view the most recent updates?",function(valueSelectedUponNotify)
 	if valueSelectedUponNotify then
-	UpdateNotes.Visible = true
+		print(UpdateNotesGUI.Visible)
+	UpdateNotesGUI.Visible = true
+	
+	print("Should have worked...")
+	venyx:toggle()
 	else
 	UpdateNotesScreenGui:Destroy()
 	end
